@@ -13,6 +13,72 @@ height = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_wy6d2"]
 size = Vector3(0.2, 0.2, 0.6)
 
+[sub_resource type="Animation" id="Animation_wy6d2"]
+resource_name = "LeftJab"
+length = 0.32
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.38469326, 0.62175226, -0.1805855), Vector3(-0.385, 0.622, -0.408), Vector3(-0.38469326, 0.62175226, -0.1805855)]
+}
+
+[sub_resource type="Animation" id="Animation_k2y66"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.38, 0.622, -0.181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.38469326, 0.62175226, -0.1805855)]
+}
+
+[sub_resource type="Animation" id="Animation_8ao1v"]
+resource_name = "RightJab"
+length = 0.32
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.38, 0.622, -0.181), Vector3(0.38, 0.622, -0.40831983), Vector3(0.38, 0.622, -0.181)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i0y3d"]
+_data = {
+&"LeftJab": SubResource("Animation_wy6d2"),
+&"RESET": SubResource("Animation_k2y66"),
+&"RightJab": SubResource("Animation_8ao1v")
+}
+
 [node name="Goblin" type="CharacterBody3D" unique_id=627872919]
 script = ExtResource("1_wy6d2")
 
@@ -34,3 +100,6 @@ mesh = SubResource("BoxMesh_wy6d2")
 [node name="LeftArm" type="MeshInstance3D" parent="." unique_id=529618622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38469326, 0.62175226, -0.1805855)
 mesh = SubResource("BoxMesh_wy6d2")
+
+[node name="Punches" type="AnimationPlayer" parent="." unique_id=492587596]
+libraries/ = SubResource("AnimationLibrary_i0y3d")

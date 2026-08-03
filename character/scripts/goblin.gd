@@ -6,6 +6,8 @@ const JUMP_VELOCITY = 4.5
 
 @export_range(0.001, 0.02) var rotation_speed = 0.01
 
+@onready var punches: AnimationPlayer = $Punches
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -17,8 +19,8 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var forward_dir := Input.get_axis("ui_up", "ui_down")
-	var rotate_dir := Input.get_axis("ui_right", "ui_left")
+	var forward_dir := Input.get_axis("move_forward", "move_backward")
+	var rotate_dir := Input.get_axis("turn_right", "turn_left")
 	var direction := (transform.basis * Vector3(0, 0, forward_dir)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -28,6 +30,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	rotation.y = rotation.y + rotate_dir * rotation_speed
-	
+
+	if Input.is_action_just_pressed("left_jab"):
+		punches.play("LeftJab")
+	if Input.is_action_just_pressed("right_jab"):
+		punches.play("RightJab")
 
 	move_and_slide()
