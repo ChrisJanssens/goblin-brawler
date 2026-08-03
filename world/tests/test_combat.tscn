@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://op0bq88w7ojs"]
 
+[ext_resource type="Script" uid="uid://s4tt8k71jnxt" path="res://world/scripts/map.gd" id="1_6kj24"]
 [ext_resource type="PackedScene" uid="uid://gqlufxapsb5k" path="res://character/goblin.tscn" id="1_sd5ik"]
 [ext_resource type="PackedScene" uid="uid://bh0lrxtyk5b06" path="res://enemies/enemy_goblin.tscn" id="2_l4xvg"]
 
@@ -29,6 +30,10 @@ albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
 
 [node name="TestCombat" type="Node3D" unique_id=101877387]
 
+[node name="Map" type="Node" parent="." unique_id=2088794522 node_paths=PackedStringArray("player")]
+script = ExtResource("1_6kj24")
+player = NodePath("../Goblin")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1735475115]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
@@ -39,8 +44,9 @@ environment = SubResource("Environment_6kj24")
 [node name="Goblin" parent="." unique_id=627872919 instance=ExtResource("1_sd5ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114766955, 0)
 
-[node name="EnemyGoblin" parent="." unique_id=734323905 instance=ExtResource("2_l4xvg")]
+[node name="EnemyGoblin" parent="." unique_id=734323905 node_paths=PackedStringArray("map_context") instance=ExtResource("2_l4xvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09049833, -2.2555876)
+map_context = NodePath("../Map")
 
 [node name="Arena" type="StaticBody3D" parent="." unique_id=1478569327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)

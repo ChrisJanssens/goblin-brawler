@@ -19,6 +19,67 @@ lightmap_size_hint = Vector2i(14, 21)
 left_to_right = -0.1
 size = Vector3(0.15, 0.5, 0.085)
 
+[sub_resource type="Animation" id="Animation_hbav5"]
+resource_name = "EyePop"
+length = 0.32
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightEye:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.31),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.184, 0.886, 0.205), Vector3(-0.29317522, 1.1719072, 0.2927974), Vector3(-0.184, 0.886, 0.205)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftEye:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.31),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.18433893, 0.88560534, 0.20536208), Vector3(0.293, 1.172, 0.293), Vector3(0.18433893, 0.88560534, 0.20536208)]
+}
+
+[sub_resource type="Animation" id="Animation_brduu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightEye:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.184, 0.886, 0.205)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftEye:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.18433893, 0.88560534, 0.20536208)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_unp72"]
+_data = {
+&"EyePop": SubResource("Animation_hbav5"),
+&"RESET": SubResource("Animation_brduu")
+}
+
 [node name="EnemyGoblin" type="AnimatableBody3D" unique_id=734323905]
 script = ExtResource("1_hbav5")
 
@@ -35,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184, 0.886, 0.205)
 mesh = SubResource("SphereMesh_243tu")
 
 [node name="LeftEye" type="MeshInstance3D" parent="." unique_id=444950180]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18433893, 0.88560534, 0.20536208)
+transform = Transform3D(0.9999873, 0.0041522575, -0.0028548462, -0.0041466146, 0.99998945, 0.0019762425, 0.0028630362, -0.0019643584, 0.9999939, 0.18433893, 0.88560534, 0.20536208)
 mesh = SubResource("SphereMesh_243tu")
 
 [node name="Nose" type="MeshInstance3D" parent="." unique_id=1583920935]
@@ -45,6 +106,7 @@ mesh = SubResource("PrismMesh_hbav5")
 [node name="Punches" type="AnimationPlayer" parent="." unique_id=846018423]
 
 [node name="Recoil" type="AnimationPlayer" parent="." unique_id=945320118]
+libraries/ = SubResource("AnimationLibrary_unp72")
 
 [node name="GoblinIdleTimer" type="Timer" parent="." unique_id=1805027260]
 process_callback = 0
