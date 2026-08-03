@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GoblinBrawler"
-run/main_scene="uid://op0bq88w7ojs"
+run/main_scene="uid://3co0x64mp4n2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

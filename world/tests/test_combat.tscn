@@ -18,6 +18,12 @@ tonemap_mode = 2
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bo4sd"]
 data = PackedVector3Array(-5, -0.05, -5, -5, -0.049999997, -5, -5, -0.049999997, 5, -5, -0.05, -5, 5, -0.05, -5, -5, -0.049999997, -5, -5, -0.05, -5, -5, -0.05, 5, 5, -0.05, -5, -5, -0.05, -5, -5, -0.049999997, 5, -5, -0.05, 5, -5, 0.05, -5, 5, 0.05, 5, -5, 0.05, 5, -5, -0.05, 5, -5, -0.049999997, 5, 5, -0.049999997, 5, 5, -0.05, -5, 5, -0.049999997, -5, -5, -0.049999997, -5, 5, 0.05, -5, 5, 0.05, 5, -5, 0.05, -5, 5, -0.05, -5, 5, -0.05, 5, 5, -0.049999997, -5, -5, -0.05, 5, 5, -0.05, 5, 5, -0.05, -5, -5, -0.05, 5, 5, -0.049999997, 5, 5, -0.05, 5, 5, -0.05, 5, 5, -0.049999997, 5, 5, -0.049999997, -5, -5, -0.049999997, 5.2, 5, -0.049999997, 5, -5, -0.049999997, 5, -5, -0.049999997, 5.2, -5, 0.45, 5.2, 5, 0.45, 5.2, -5, 0.45, 5, -5, 0.05, 5, 5, 0.45, 5, -5, 0.45, 5, 5, 0.45, 5.2, -5, 0.45, 5.2, -5, -0.049999997, 5.2, 5, -0.049999997, 5.2, 5, -0.049999997, 5, -5, -0.049999997, 5.2, 5, 0.45, 5.2, 5, -0.049999997, 5.2, 5, 0.45, 5, -5, 0.05, 5, 5, 0.05, 5, -5, 0.45, 5, 5, 0.45, 5, 5, 0.45, 5.2, -5, -0.049999997, -5.2, -5, -0.049999997, -5, 5, -0.049999997, -5.2, -5, -0.049999997, -5.2, 5, -0.049999997, -5.2, -5, 0.45, -5.2, -5, 0.45, -5, 5, 0.05, -5, -5, 0.05, -5, -5, 0.45, -5.2, 5, 0.45, -5, -5, 0.45, -5, 5, -0.049999997, -5.2, -5, -0.049999997, -5, 5, -0.049999997, -5, -5, 0.45, -5.2, 5, -0.049999997, -5.2, 5, 0.45, -5.2, -5, 0.45, -5, 5, 0.45, -5, 5, 0.05, -5, -5, 0.45, -5.2, 5, 0.45, -5.2, 5, 0.45, -5, 5, -0.049999997, -5.2, 5, -0.049999997, -5, 5.2, -0.049999997, -5.2, 5.2, -0.049999997, -5.2, 5, -0.049999997, -5, 5, -0.049999997, 5, 5, -0.049999997, -5.2, 5.2, -0.049999997, -5.2, 5, 0.45, -5.2, 5, 0.45, -5, 5, 0.05, 5, 5, 0.05, -5, 5.2, -0.049999997, -5.2, 5, -0.049999997, 5, 5, -0.049999997, 5.2, 5.2, -0.049999997, -5.2, 5, -0.049999997, 5.2, 5.2, -0.049999997, 5.2, 5.2, -0.049999997, -5.2, 5.2, -0.049999997, 5.2, 5.2, 0.45, 5.2, 5, -0.049999997, 5.2, 5.2, 0.45, 5.2, 5.2, -0.049999997, 5.2, 5.2, -0.049999997, -5.2, 5.2, 0.45, -5.2, 5, 0.45, -5.2, 5.2, -0.049999997, -5.2, 5.2, 0.45, 5.2, 5.2, 0.45, -5.2, 5, 0.45, -5.2, 5.2, 0.45, 5.2, 5, 0.45, -5, 5, 0.45, -5.2, 5.2, 0.45, -5.2, 5.2, 0.45, 5.2, 5, 0.45, -5, 5, 0.45, 5, 5, 0.05, 5, 5, -0.049999997, 5.2, 5, 0.45, 5.2, 5.2, 0.45, 5.2, 5, 0.45, -5, 5.2, 0.45, 5.2, 5, 0.45, 5, 5, 0.45, 5, 5.2, 0.45, 5.2, 5, 0.45, 5.2, -5.2, -0.049999997, -5.2, -5.2, -0.049999997, 5.2, -5, -0.049999997, -5.2, -5, -0.049999997, -5.2, -5.2, -0.049999997, 5.2, -5, -0.049999997, -5, -5.2, -0.049999997, -5.2, -5, -0.049999997, -5.2, -5.2, 0.45, -5.2, -5.2, -0.049999997, -5.2, -5.2, 0.45, -5.2, -5.2, -0.049999997, 5.2, -5.2, -0.049999997, 5.2, -5, -0.049999997, 5, -5, -0.049999997, -5, -5.2, -0.049999997, 5.2, -5, -0.049999997, 5.2, -5, -0.049999997, 5, -5, 0.45, 5, -5, 0.05, -5, -5, 0.05, 5, -5.2, -0.049999997, 5.2, -5, 0.45, 5.2, -5, -0.049999997, 5.2, -5, -0.049999997, -5.2, -5, 0.45, -5.2, -5.2, 0.45, -5.2, -5, 0.45, -5, -5, 0.05, -5, -5, 0.45, 5, -5.2, 0.45, -5.2, -5, 0.45, -5.2, -5, 0.45, -5, -5.2, 0.45, -5.2, -5, 0.45, -5, -5, 0.45, 5, -5.2, -0.049999997, 5.2, -5.2, 0.45, -5.2, -5.2, 0.45, 5.2, -5.2, -0.049999997, 5.2, -5.2, 0.45, 5.2, -5, 0.45, 5.2, -5.2, 0.45, -5.2, -5, 0.45, 5.2, -5.2, 0.45, 5.2, -5.2, 0.45, -5.2, -5, 0.45, 5, -5, 0.45, 5.2)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_l4xvg"]
+vertices = PackedVector3Array(-4.45, 0.07, -4.45, -4.45, 0.07, 4.3, 4.3, 0.07, 4.3, 4.3, 0.07, -4.45)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 0
+cell_height = 0.01
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd5ik"]
 albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
 
@@ -30,34 +36,37 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=796796843]
 environment = SubResource("Environment_6kj24")
 
+[node name="Goblin" parent="." unique_id=627872919 instance=ExtResource("1_sd5ik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114766955, 0)
+
+[node name="EnemyGoblin" parent="." unique_id=734323905 instance=ExtResource("2_l4xvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09049833, -2.2555876)
+
 [node name="Arena" type="StaticBody3D" parent="." unique_id=1478569327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
 [node name="ArenaCollider" type="CollisionShape3D" parent="Arena" unique_id=2122777677]
 shape = SubResource("ConcavePolygonShape3D_bo4sd")
 
-[node name="ArenaFloor" type="CSGBox3D" parent="Arena" unique_id=750581673]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Arena" unique_id=1610617244]
+navigation_mesh = SubResource("NavigationMesh_l4xvg")
+
+[node name="ArenaFloor" type="CSGBox3D" parent="Arena/NavigationRegion3D" unique_id=750581673]
 material_override = SubResource("StandardMaterial3D_sd5ik")
 size = Vector3(10, 0.1, 10)
 
-[node name="ArenaWallNorth" type="CSGBox3D" parent="Arena/ArenaFloor" unique_id=1493797942]
+[node name="ArenaWallNorth" type="CSGBox3D" parent="Arena/NavigationRegion3D/ArenaFloor" unique_id=1493797942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5.1)
 size = Vector3(10, 0.5, 0.2)
 
-[node name="ArenaWallSouth" type="CSGBox3D" parent="Arena/ArenaFloor" unique_id=446948642]
+[node name="ArenaWallSouth" type="CSGBox3D" parent="Arena/NavigationRegion3D/ArenaFloor" unique_id=446948642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -5.1)
 size = Vector3(10, 0.5, 0.2)
 
-[node name="ArenaWallWest" type="CSGBox3D" parent="Arena/ArenaFloor" unique_id=1613755242]
+[node name="ArenaWallWest" type="CSGBox3D" parent="Arena/NavigationRegion3D/ArenaFloor" unique_id=1613755242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0.2, 0)
 size = Vector3(0.2, 0.5, 10.4)
 
-[node name="ArenaWallEast" type="CSGBox3D" parent="Arena/ArenaFloor" unique_id=597305397]
+[node name="ArenaWallEast" type="CSGBox3D" parent="Arena/NavigationRegion3D/ArenaFloor" unique_id=597305397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0.2, 0)
 size = Vector3(0.2, 0.5, 10.4)
-
-[node name="Goblin" parent="." unique_id=627872919 instance=ExtResource("1_sd5ik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114766955, 0)
-
-[node name="EnemyGoblin" parent="." unique_id=734323905 instance=ExtResource("2_l4xvg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09049833, -2.2555876)
