@@ -13,6 +13,9 @@ height = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_wy6d2"]
 size = Vector3(0.2, 0.2, 0.6)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wy6d2"]
+radius = 0.12
+
 [sub_resource type="Animation" id="Animation_wy6d2"]
 resource_name = "LeftJab"
 length = 0.32
@@ -91,15 +94,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55369025, 0)
 shape = SubResource("CapsuleShape3D_wy6d2")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1435426548]
-transform = Transform3D(1, 0, 0, 0, 0.93383664, 0.3576998, 0, -0.3576998, 0.93383664, 0, 1.3760487, 1.3303969)
+transform = Transform3D(1, 0, 0, 0, 0.8540233, 0.5202348, 0, -0.5202348, 0.8540233, 0, 1.6278301, 1.0362253)
 
 [node name="RightArm" type="MeshInstance3D" parent="." unique_id=721677620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.622, -0.181)
 mesh = SubResource("BoxMesh_wy6d2")
 
+[node name="Fist" type="Area3D" parent="RightArm" unique_id=1918817204]
+
+[node name="FistCollider" type="CollisionShape3D" parent="RightArm/Fist" unique_id=1351014839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21180683)
+shape = SubResource("SphereShape3D_wy6d2")
+
 [node name="LeftArm" type="MeshInstance3D" parent="." unique_id=529618622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38469326, 0.62175226, -0.1805855)
 mesh = SubResource("BoxMesh_wy6d2")
 
+[node name="Fist" type="Area3D" parent="LeftArm" unique_id=135651265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008956611, 0.0002477169, -0.007449329)
+
+[node name="FistCollider" type="CollisionShape3D" parent="LeftArm/Fist" unique_id=698066633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21180683)
+shape = SubResource("SphereShape3D_wy6d2")
+
 [node name="Punches" type="AnimationPlayer" parent="." unique_id=492587596]
 libraries/ = SubResource("AnimationLibrary_i0y3d")
+
+[connection signal="body_entered" from="RightArm/Fist" to="." method="_on_fist_touch"]
+[connection signal="body_entered" from="LeftArm/Fist" to="." method="_on_fist_touch"]
+[connection signal="animation_finished" from="Punches" to="." method="_on_punches_finished"]

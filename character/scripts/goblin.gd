@@ -8,6 +8,8 @@ const JUMP_VELOCITY = 4.5
 
 @onready var punches: AnimationPlayer = $Punches
 
+var punching: bool = false
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -31,9 +33,21 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	rotation.y = rotation.y + rotate_dir * rotation_speed
 
-	if Input.is_action_just_pressed("left_jab"):
-		punches.play("LeftJab")
-	if Input.is_action_just_pressed("right_jab"):
-		punches.play("RightJab")
+	if not punching:
+		if Input.is_action_just_pressed("left_jab"):
+			punches.play("LeftJab")
+			punching = true
+		elif Input.is_action_just_pressed("right_jab"):
+			punches.play("RightJab")
+			punching = true
 
 	move_and_slide()
+
+func _on_punches_finished(anim_name: StringName) -> void:
+	punching = false # Replace with function body.
+
+func _on_fist_touch(body: Node3D) -> void:
+	print(body.name)
+	if body.name == "EnemyGoblin":
+		if punching == true:
+			body.health -= 1

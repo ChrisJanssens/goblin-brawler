@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://op0bq88w7ojs"]
 
 [ext_resource type="PackedScene" uid="uid://gqlufxapsb5k" path="res://character/goblin.tscn" id="1_sd5ik"]
+[ext_resource type="PackedScene" uid="uid://bh0lrxtyk5b06" path="res://enemies/enemy_goblin.tscn" id="2_l4xvg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sd5ik"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,3 +58,6 @@ size = Vector3(0.2, 0.5, 10.4)
 
 [node name="Goblin" parent="." unique_id=627872919 instance=ExtResource("1_sd5ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114766955, 0)
+
+[node name="EnemyGoblin" parent="." unique_id=734323905 instance=ExtResource("2_l4xvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09049833, -2.2555876)
