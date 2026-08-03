@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bh0lrxtyk5b06"]
+
+[ext_resource type="Script" uid="uid://c5njdeyc3nvkr" path="res://enemies/scripts/enemy_goblin.gd" id="1_hbav5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sd5ik"]
+radius = 0.4
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l4xvg"]
+radius = 0.4
+height = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_243tu"]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="PrismMesh" id="PrismMesh_hbav5"]
+lightmap_size_hint = Vector2i(14, 21)
+left_to_right = -0.1
+size = Vector3(0.15, 0.5, 0.085)
+
+[node name="EnemyGoblin" type="AnimatableBody3D" unique_id=734323905]
+script = ExtResource("1_hbav5")
+
+[node name="GoblinForm" type="MeshInstance3D" parent="." unique_id=676544299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_sd5ik")
+
+[node name="GoblinCollider" type="CollisionShape3D" parent="." unique_id=1373070944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55369025, 0)
+shape = SubResource("CapsuleShape3D_l4xvg")
+
+[node name="RightEye" type="MeshInstance3D" parent="." unique_id=1676692202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184, 0.886, 0.205)
+mesh = SubResource("SphereMesh_243tu")
+
+[node name="LeftEye" type="MeshInstance3D" parent="." unique_id=444950180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18433893, 0.88560534, 0.20536208)
+mesh = SubResource("SphereMesh_243tu")
+
+[node name="Nose" type="MeshInstance3D" parent="." unique_id=1583920935]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 0.9784874, -0.2063067, 9.01795e-09, 0.2063067, 0.9784874, -4.2771042e-08, 0, 0.83599234, 0.389)
+mesh = SubResource("PrismMesh_hbav5")
+
+[node name="Punches" type="AnimationPlayer" parent="." unique_id=846018423]
+
+[node name="Recoil" type="AnimationPlayer" parent="." unique_id=945320118]
+
+[node name="GoblinIdleTimer" type="Timer" parent="." unique_id=1805027260]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="GoblinIdleTimer" to="." method="_on_goblin_idle_timer_timeout"]

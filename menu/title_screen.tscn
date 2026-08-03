@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://3co0x64mp4n2"]
+
+[ext_resource type="Script" uid="uid://btif42xyxmdet" path="res://menu/scripts/title_controller.gd" id="1_lxdol"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8u3aq"]
+font_size = 72
+
+[node name="TitleScreen" type="Control" unique_id=417069608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleController" type="Node" parent="." unique_id=2003248508]
+script = ExtResource("1_lxdol")
+
+[node name="Content" type="MarginContainer" parent="." unique_id=1862401923]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content" unique_id=1235577510]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Content/VBoxContainer" unique_id=1359788446]
+layout_mode = 2
+text = "Goblin Brawler"
+label_settings = SubResource("LabelSettings_8u3aq")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="Content/VBoxContainer" unique_id=642105861]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Start Game"
+
+[connection signal="pressed" from="Content/VBoxContainer/Start" to="TitleController" method="_on_start_pressed"]
