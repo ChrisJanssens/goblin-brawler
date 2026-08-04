@@ -18,9 +18,6 @@ const AGGRO_DISTANCE: float = 8.0
 
 @export var map_context: Map
 
-@export var attack_sequence: Array[String]
-var attack_sequence_idx: int = 0
-
 var movement_speed: float = 4.0
 var movement_delta: float
 var path_point_margin: float = WANDER_PATH_MARGIN
@@ -44,6 +41,15 @@ var attacking: bool = false
 		health = clampf(new_value, 0.0, 20.0)
 		if health == 0.0:
 			_death()
+
+@export_category("Fight Behaviour")
+@export var attack_sequence: Array[String]
+@export var attack_delay: Array[float]
+@export_range(0.0, 10.0) var attack_delay_rand_buffer: float = 0.1
+@export var global_attack_speed_modifier: float = 1.0
+@export_range(0.0, 10.0) var global_attack_speed_rand_buffer: float = 0.1
+var attack_sequence_idx: int = 0
+var attack_delay_idx: int = 0
 
 func _death():
 	queue_free()
@@ -149,11 +155,21 @@ func _on_fist_touch(body: Node3D) -> void:
 
 func _on_start_attack() -> void:
 	var attack: String = attack_sequence[attack_sequence_idx]
+	punches.speed_scale = _add_rand_buffer(global_attack_speed_modifier, global_attack_speed_rand_buffer)
 	punches.play(attack)
 	punching = true
 	attack_sequence_idx = (attack_sequence_idx + 1) % attack_sequence.size()
 
+func _add_rand_buffer(target: float, rand_buffer: float) -> float:
+	var value: float = target
+	var coefficient: float = target * rand_buffer
+	value = value + (randf() * coefficient)
+	return value
+
 func _on_punches_finished(anim_name: StringName) -> void:
 	punching = false
 	if attacking:
-		goblin_attack_timer.start()
+		var delay: float = attack_delay[attack_delay_idx]
+		delay = _add_rand_buffer(delay, attack_delay_rand_buffer)
+		goblin_attack_timer.start(delay)
+		attack_delay_idx = (attack_delay_idx + 1) % attack_delay.size()
