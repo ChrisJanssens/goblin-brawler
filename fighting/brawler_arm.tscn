@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://wic6yo4p2jof"]
+
+[ext_resource type="Script" uid="uid://c1v74v12mqg5b" path="res://fighting/scripts/brawler_arm.gd" id="1_e8bbl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wy6d2"]
+size = Vector3(0.2, 0.2, 0.6)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wy6d2"]
+radius = 0.12
+
+[node name="Arm" type="MeshInstance3D" unique_id=1295421005]
+mesh = SubResource("BoxMesh_wy6d2")
+script = ExtResource("1_e8bbl")
+
+[node name="Fist" type="Area3D" parent="." unique_id=1278114522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21180683)
+
+[node name="FistCollider" type="CollisionShape3D" parent="Fist" unique_id=1005643317]
+shape = SubResource("SphereShape3D_wy6d2")
+
+[connection signal="body_entered" from="Fist" to="." method="_on_fist_body_entered"]

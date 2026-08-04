@@ -6,9 +6,23 @@ const JUMP_VELOCITY = 4.5
 
 @export_range(0.001, 0.2) var rotation_speed = 0.01
 
+@export var max_health: float = 5.0
+
+var health: float:
+	set(new_value):
+		health = clampf(new_value, 0.0, 20.0)
+		if health == 0.0:
+			_death()
+
 @onready var punches: AnimationPlayer = $Punches
 
 var punching: bool = false
+
+func _death() -> void:
+	get_tree().change_scene_to_file("res://menu/title_screen.tscn")
+
+func _ready() -> void:
+	health = max_health
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -47,7 +61,6 @@ func _on_punches_finished(anim_name: StringName) -> void:
 	punching = false # Replace with function body.
 
 func _on_fist_touch(body: Node3D) -> void:
-	print(body.name)
 	if body.name == "EnemyGoblin":
 		if punching == true:
 			body.health -= 1

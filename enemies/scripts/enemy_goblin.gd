@@ -11,10 +11,15 @@ const AGGRO_DISTANCE: float = 8.0
 
 @onready var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
 @onready var goblin_idle_timer: Timer = $GoblinIdleTimer
+@onready var goblin_attack_timer: Timer = $GoblinAttackTimer
 
+@onready var punches: AnimationPlayer = $Punches
 @onready var recoil: AnimationPlayer = $Recoil
 
 @export var map_context: Map
+
+@export var attack_sequence: Array[String]
+var attack_sequence_idx: int = 0
 
 var movement_speed: float = 4.0
 var movement_delta: float
@@ -27,6 +32,9 @@ var current_path: PackedVector3Array
 @export var starting_state: STATES = STATES.WANDERING
 
 var state: STATES
+
+var punching: bool = false
+var attacking: bool = false
 
 @export_range(0, 20) var health: float = 5.0:
 	set(new_value):
@@ -125,5 +133,27 @@ func follow_aggro() -> void:
 	var target_position: Vector3 = map_context.player.global_position
 	face_player(target_position)
 
-	if target_position.distance_squared_to(global_position) > 2.0:
+	if target_position.distance_squared_to(global_position) > 1.5:
+		attacking = false
 		set_movement_target(target_position)
+	else:
+		if not attacking:
+			attacking = true
+			goblin_attack_timer.start()
+
+func _on_fist_touch(body: Node3D) -> void:
+	print(body.name)
+	if body.name == "Goblin":
+		if punching == true:
+			body.health -= 1
+
+func _on_start_attack() -> void:
+	var attack: String = attack_sequence[attack_sequence_idx]
+	punches.play(attack)
+	punching = true
+	attack_sequence_idx = (attack_sequence_idx + 1) % attack_sequence.size()
+
+func _on_punches_finished(anim_name: StringName) -> void:
+	punching = false
+	if attacking:
+		goblin_attack_timer.start()
