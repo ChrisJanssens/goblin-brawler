@@ -5,6 +5,10 @@ enum STATES {
 	AGGRO
 }
 
+const WANDER_PATH_MARGIN: float = 0.5
+const AGGRO_PATH_MARGIN: float = 3.0
+const AGGRO_DISTANCE: float = 8.0
+
 @onready var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
 @onready var goblin_idle_timer: Timer = $GoblinIdleTimer
 
@@ -14,7 +18,7 @@ enum STATES {
 
 var movement_speed: float = 4.0
 var movement_delta: float
-var path_point_margin: float = 0.5
+var path_point_margin: float = WANDER_PATH_MARGIN
 
 var current_path_index: int = 0
 var current_path_point: Vector3
@@ -56,7 +60,7 @@ func _ready() -> void:
 		goblin_idle_timer.start()
 
 func _physics_process(delta):
-	
+
 	if state == STATES.AGGRO:
 		follow_aggro()
 
@@ -87,11 +91,11 @@ func _on_goblin_idle_timer_timeout() -> void:
 	var z_diff: float = clampf((randf() * 6.0), 3.0, 6.0)
 
 	if randi() % 2 == 1:
-		x_diff = -x_diff
+		x_diff = - x_diff
 	if randi() % 2 == 1:
-		z_diff = -z_diff
+		z_diff = - z_diff
 
-	var new_target: Vector3 = global_transform.origin
+	var new_target: Vector3 = global_position
 	new_target.x += x_diff
 	new_target.z += z_diff
 
@@ -100,9 +104,26 @@ func _on_goblin_idle_timer_timeout() -> void:
 
 func aggro() -> void:
 	state = STATES.AGGRO
+	path_point_margin = AGGRO_PATH_MARGIN
+	goblin_idle_timer.stop()
 	follow_aggro()
 
+func face_player(target_position: Vector3) -> void:
+	var horizontal_target: Vector3 = Vector3(target_position.x, global_position.y, target_position.z)
+	var direction_to_player: Vector3 = horizontal_target - global_position
+
+	if direction_to_player.length_squared() < 0.0001:
+		return
+
+	var yaw_angle: float = atan2(direction_to_player.x, direction_to_player.z)
+	rotation.y = yaw_angle
+
 func follow_aggro() -> void:
-	var diff: Vector3 = global_position - map_context.player.global_position
-	set_movement_target(map_context.player.global_position)
-	rotation.y = atan2(diff.x, diff.z)
+	if map_context == null or map_context.player == null:
+		return
+
+	var target_position: Vector3 = map_context.player.global_position
+	face_player(target_position)
+
+	if target_position.distance_squared_to(global_position) > 2.0:
+		set_movement_target(target_position)

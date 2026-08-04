@@ -4,7 +4,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-@export_range(0.001, 0.02) var rotation_speed = 0.01
+@export_range(0.001, 0.2) var rotation_speed = 0.01
 
 @onready var punches: AnimationPlayer = $Punches
 

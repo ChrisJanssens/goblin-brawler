@@ -43,6 +43,7 @@ environment = SubResource("Environment_6kj24")
 
 [node name="Goblin" parent="." unique_id=627872919 instance=ExtResource("1_sd5ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114766955, 0)
+rotation_speed = 0.038
 
 [node name="EnemyGoblin" parent="." unique_id=734323905 node_paths=PackedStringArray("map_context") instance=ExtResource("2_l4xvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09049833, -2.2555876)
