@@ -24,7 +24,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0667, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.38469326, 0.62175226, -0.1805855), Vector3(-0.385, 0.622, -0.408), Vector3(-0.38469326, 0.62175226, -0.1805855)]
+"values": [Vector3(-0.38469326, 0.62175226, -0.1805855), Vector3(-0.245, 0.622, -0.523), Vector3(-0.38469326, 0.62175226, -0.1805855)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.297687),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.33161256, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_k2y66"]
@@ -53,6 +65,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-0.38469326, 0.62175226, -0.1805855)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.33161256, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8ao1v"]
 resource_name = "RightJab"
@@ -67,7 +103,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.06666667, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.38, 0.622, -0.181), Vector3(0.38, 0.622, -0.40831983), Vector3(0.38, 0.622, -0.181)]
+"values": [Vector3(0.38, 0.622, -0.181), Vector3(0.245, 0.622, -0.523), Vector3(0.38, 0.622, -0.181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0667, 0.30001268),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.33161256, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i0y3d"]
@@ -75,6 +123,165 @@ _data = {
 &"LeftJab": SubResource("Animation_wy6d2"),
 &"RESET": SubResource("Animation_k2y66"),
 &"RightJab": SubResource("Animation_8ao1v")
+}
+
+[sub_resource type="Animation" id="Animation_i0y3d"]
+resource_name = "Block"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1488435),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.38, 0.622, -0.181), Vector3(0.255, 0.765, -0.373)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1488435),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.1222467, 1.3473942, 1.3508848)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1488435),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.38469326, 0.62175226, -0.1805855), Vector3(-0.2553227, 0.7651212, -0.37346077)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1488435),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.122683, -1.3474648, -1.3504329)]
+}
+
+[sub_resource type="Animation" id="Animation_281ga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.38, 0.622, -0.181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.38469326, 0.62175226, -0.1805855)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kg8g1"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1488),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.255, 0.765, -0.373), Vector3(0.38, 0.622, -0.181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1488),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.1222467, 1.3473942, 1.3508848), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1488),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.2553227, 0.7651212, -0.37346077), Vector3(-0.38469326, 0.62175226, -0.1805855)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1488),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.122683, -1.3474648, -1.3504329), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg8g1"]
+_data = {
+&"Block": SubResource("Animation_i0y3d"),
+&"RESET": SubResource("Animation_281ga"),
+&"Unblock": SubResource("Animation_kg8g1")
 }
 
 [node name="Goblin" type="CharacterBody3D" unique_id=627872919]
@@ -95,11 +302,15 @@ transform = Transform3D(1, 0, 0, 0, 0.8540233, 0.5202348, 0, -0.5202348, 0.85402
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.622, -0.181)
 
 [node name="LeftArm" parent="." unique_id=65120092 instance=ExtResource("2_k2y66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38469326, 0.62175226, -0.1805855)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999998, -0.38469326, 0.62175226, -0.1805855)
 
 [node name="Punches" type="AnimationPlayer" parent="." unique_id=492587596]
 libraries/ = SubResource("AnimationLibrary_i0y3d")
 
+[node name="Block" type="AnimationPlayer" parent="." unique_id=564232080]
+libraries/ = SubResource("AnimationLibrary_kg8g1")
+
 [connection signal="jab" from="RightArm" to="." method="_on_fist_touch"]
 [connection signal="jab" from="LeftArm" to="." method="_on_fist_touch"]
 [connection signal="animation_finished" from="Punches" to="." method="_on_punches_finished"]
+[connection signal="animation_finished" from="Block" to="." method="_on_block_finished"]

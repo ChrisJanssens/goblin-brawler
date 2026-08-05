@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name GoblinPlayer
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -11,13 +11,17 @@ const JUMP_VELOCITY = 4.5
 
 var health: float:
 	set(new_value):
+		if blocking:
+			return
 		health = clampf(new_value, 0.0, 20.0)
 		if health == 0.0:
 			_death()
 
 @onready var punches: AnimationPlayer = $Punches
+@onready var block: AnimationPlayer = $Block
 
 var punching: bool = false
+var blocking: bool = false
 
 func _death() -> void:
 	get_tree().change_scene_to_file("res://menu/title_screen.tscn")
@@ -57,13 +61,20 @@ func _physics_process(delta: float) -> void:
 
 	rotation.y = rotation.y + rotate_dir * rotation_speed
 
-	if not punching:
+	if not punching and not blocking:
 		if Input.is_action_just_pressed("left_jab"):
 			punches.play("LeftJab")
 			punching = true
 		elif Input.is_action_just_pressed("right_jab"):
 			punches.play("RightJab")
 			punching = true
+		if Input.is_action_pressed("block"):
+			block.play("Block")
+			blocking = true
+	elif blocking:
+		if not Input.is_action_pressed("block"):
+			block.play("Unblock")
+			blocking = false
 
 	move_and_slide()
 
@@ -87,3 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation.y -= event.relative.x * mouse_sensitivity
 		rotation.x -= event.relative.y * mouse_sensitivity
 		rotation.x = clampf(rotation.x, -0.5, 0.6)
+
+
+func _on_block_finished(anim_name: StringName) -> void:
+	print(anim_name)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://s4tt8k71jnxt" path="res://world/scripts/map.gd" id="1_6kj24"]
 [ext_resource type="PackedScene" uid="uid://gqlufxapsb5k" path="res://character/goblin.tscn" id="1_sd5ik"]
 [ext_resource type="PackedScene" uid="uid://bh0lrxtyk5b06" path="res://enemies/enemy_goblin.tscn" id="2_l4xvg"]
+[ext_resource type="Script" uid="uid://btr57vhsw5vn6" path="res://feedback/debug/scripts/player_health.gd" id="4_0nn4h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sd5ik"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,6 +28,10 @@ cell_height = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd5ik"]
 albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0nn4h"]
+font_size = 32
+font_color = Color(1, 0, 0, 1)
 
 [node name="TestCombat" type="Node3D" unique_id=101877387]
 
@@ -77,3 +82,27 @@ size = Vector3(0.2, 0.5, 10.4)
 [node name="ArenaWallEast" type="CSGBox3D" parent="Arena/NavigationRegion3D/ArenaFloor" unique_id=597305397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0.2, 0)
 size = Vector3(0.2, 0.5, 10.4)
+
+[node name="DebugCanvas" type="CanvasLayer" parent="." unique_id=924300907]
+
+[node name="Body" type="MarginContainer" parent="DebugCanvas" unique_id=1171014128]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PlayerHealth" type="Label" parent="DebugCanvas/Body" unique_id=1615224687 node_paths=PackedStringArray("player")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Health: "
+label_settings = SubResource("LabelSettings_0nn4h")
+script = ExtResource("4_0nn4h")
+player = NodePath("../../../Goblin")
+
+[node name="FeedbackCanvas" type="CanvasLayer" parent="." unique_id=242170247]
